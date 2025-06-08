@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.cybersecurityzenkoans"
+    namespace = "com.kuwaitdevs.cybersecurityzenkoans"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.cybersecurityzenkoans"
+        applicationId = "com.kuwaitdevs.cybersecurityzenkoans"
         minSdk = 35
         targetSdk = 35
         versionCode = 1
@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.androidx.runtime.livedata)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

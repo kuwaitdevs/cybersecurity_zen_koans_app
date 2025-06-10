@@ -1,20 +1,12 @@
 package com.kuwaitdevs.cybersecurityzenkoans.data
 
-/**
- * Data class to represent a complete Koan with its explanation and unique code
- */
 data class KoanWithExplanation(
     val koanText: String,
     val technicalExplanation: String,
     val uniqueCode: String
 )
 
-/**
- * Repository containing all Cybersecurity Zen Koans
- * This class is responsible for data access only
- */
 class KoansRepository {
-
     val koansWithExplanations = listOf(
         KoanWithExplanation(
             "The strongest firewall is useless against a user who clicks 'Allow'.",
@@ -66,25 +58,21 @@ class KoansRepository {
             "Unknown vulnerabilities (zero-days) pose greater risks than known threat actors. While you can prepare for known attack techniques, zero-day exploits can bypass defenses because there are no patches or signatures to detect them until they're discovered.",
             "3J8WU2"
         ),
-        // ... existing koans ...
         KoanWithExplanation(
             "Security is not a product, but a process that walks alongside vigilance.",
             "This highlights the continuous nature of security. It's not about implementing a one-time solution but about maintaining an ongoing process of monitoring, updating, and responding to new threats as they arise.",
             "S5PD7V"
         ),
-        // ... rest of existing koans with static codes ...
         KoanWithExplanation(
             "A security camera pointed at nothing offers perfect surveillance of nothing.",
             "Surveillance and monitoring systems must be properly configured and maintained to be effective. Otherwise, they can create a false sense of security and fail to detect actual threats.",
             "U4N9C3"
         ),
-        // ... remaining koans ...
         KoanWithExplanation(
             "In the cybersecurity battle, visibility is the foundation of victory.",
             "Being able to see and monitor all activities and potential threats within a system or network is crucial to effective security. This visibility allows for quick detection and response to potential issues.",
             "Y8R5T1"
         ),
-        // ... remaining koans ...
         KoanWithExplanation(
             "A vulnerability scanner finds only what it knows to look for; human creativity finds what has never been seen before.",
             "Automated vulnerability scanners are essential tools, but they have limitations. Human expertise and creativity are often needed to identify and address more complex or subtle vulnerabilities.",
@@ -95,78 +83,66 @@ class KoansRepository {
             "Even the most robust security can be compromised by a single user’s negligence. Security awareness and training are critical components of a secure environment.",
             "B9X2YQ"
         ),
-
-                KoanWithExplanation(
-                "Obscurity is not security, yet many confuse the shadow for the fortress.",
-        "Relying on secrecy alone (security through obscurity) is a flawed strategy. True security comes from well-implemented and tested protections, not hidden mechanisms.",
-        "P3J1LD"
-    ),
-
-    KoanWithExplanation(
-    "The code is only as secure as the weakest developer's understanding.",
-    "Security vulnerabilities often arise from developers' lack of knowledge. Building secure systems requires consistent security education across all contributors.",
-    "Z6R9FT"
-    ),
-
-    KoanWithExplanation(
-    "When you encrypt your data, you do not protect it from theft, but from understanding.",
-    "Encryption does not prevent data from being accessed or stolen—it prevents unauthorized parties from making sense of it.",
-    "D8M5CQ"
-    ),
-
-    KoanWithExplanation(
-    "The path to enlightenment begins with acknowledging that all systems can be breached.",
-    "Assuming breach is a realistic approach to cybersecurity. Recognizing this allows for building resilient systems prepared for compromise.",
-    "L7U2WA"
-    ),
-
-    KoanWithExplanation(
-    "The strongest defense is not built with technology, but with awareness.",
-    "User education, vigilance, and a security-first mindset often prevent breaches more effectively than technical solutions alone.",
-    "K5N4EZ"
-    ),
-
-    KoanWithExplanation(
-    "In the calm mind of the security master, patches are applied before vulnerabilities are known.",
-    "Proactive patching, hardening, and secure design prevent many zero-day attacks. Anticipating rather than reacting is key.",
-    "S1X8TR"
-    ),
-
-    KoanWithExplanation(
-    "The wise security expert builds not higher walls, but more observant eyes.",
-    "Instead of relying solely on defense mechanisms, focus on visibility, detection, and quick response to threats.",
-    "M4B6KU"
-    ),
-
-    KoanWithExplanation(
-    "A single unpatched system can compromise an entire network, just as one poisoned thought can taint all wisdom.",
-    "An unpatched vulnerability in one machine can serve as a gateway to compromise an entire infrastructure. Consistency in security is essential.",
-    "R9Y3NH"
-    ),
-
-    KoanWithExplanation(
-    "True security is not about preventing entry, but knowing when entry occurs.",
-    "Absolute prevention is impossible; timely detection and response are what truly protect systems.",
-    "E2Q7JW"
-    ),
-
-    KoanWithExplanation(
-    "The careless click is more dangerous than the sophisticated exploit.",
-    "Phishing and social engineering often bypass technical controls. Human error is a frequent attack vector.",
-    "W8Z1GD"
-    ),
-
-    KoanWithExplanation(
-    "In the realm of cybersecurity, what you don't know can indeed harm you.",
-    "Unawareness of vulnerabilities, misconfigurations, or threat actors puts systems at significant risk.",
-    "T3L6VA"
-    ),
-
-    KoanWithExplanation(
-    "The hacker and the defender walk the same path, but with different intentions.",
-    "Both attackers and defenders understand systems deeply, but their goals diverge—one seeks to exploit, the other to protect.",
-    "H5C9XE"
-    ),
+        KoanWithExplanation(
+            "Obscurity is not security, yet many confuse the shadow for the fortress.",
+            "Relying on secrecy alone (security through obscurity) is a flawed strategy. True security comes from well-implemented and tested protections, not hidden mechanisms.",
+            "P3J1LD"
+        ),
+        KoanWithExplanation(
+            "The code is only as secure as the weakest developer's understanding.",
+            "Security vulnerabilities often arise from developers' lack of knowledge. Building secure systems requires consistent security education across all contributors.",
+            "Z6R9FT"
+        ),
+        KoanWithExplanation(
+            "When you encrypt your data, you do not protect it from theft, but from understanding.",
+            "Encryption does not prevent data from being accessed or stolen—it prevents unauthorized parties from making sense of it.",
+            "D8M5CQ"
+        ),
+        KoanWithExplanation(
+            "The path to enlightenment begins with acknowledging that all systems can be breached.",
+            "Assuming breach is a realistic approach to cybersecurity. Recognizing this allows for building resilient systems prepared for compromise.",
+            "L7U2WA"
+        ),
+        KoanWithExplanation(
+            "The strongest defense is not built with technology, but with awareness.",
+            "User education, vigilance, and a security-first mindset often prevent breaches more effectively than technical solutions alone.",
+            "K5N4EZ"
+        ),
+        KoanWithExplanation(
+            "In the calm mind of the security master, patches are applied before vulnerabilities are known.",
+            "Proactive patching, hardening, and secure design prevent many zero-day attacks. Anticipating rather than reacting is key.",
+            "S1X8TR"
+        ),
+        KoanWithExplanation(
+            "The wise security expert builds not higher walls, but more observant eyes.",
+            "Instead of relying solely on defense mechanisms, focus on visibility, detection, and quick response to threats.",
+            "M4B6KU"
+        ),
+        KoanWithExplanation(
+            "A single unpatched system can compromise an entire network, just as one poisoned thought can taint all wisdom.",
+            "An unpatched vulnerability in one machine can serve as a gateway to compromise an entire infrastructure. Consistency in security is essential.",
+            "R9Y3NH"
+        ),
+        KoanWithExplanation(
+            "True security is not about preventing entry, but knowing when entry occurs.",
+            "Absolute prevention is impossible; timely detection and response are what truly protect systems.",
+            "E2Q7JW"
+        ),
+        KoanWithExplanation(
+            "The careless click is more dangerous than the sophisticated exploit.",
+            "Phishing and social engineering often bypass technical controls. Human error is a frequent attack vector.",
+            "W8Z1GD"
+        ),
+        KoanWithExplanation(
+            "In the realm of cybersecurity, what you don't know can indeed harm you.",
+            "Unawareness of vulnerabilities, misconfigurations, or threat actors puts systems at significant risk.",
+            "T3L6VA"
+        ),
+        KoanWithExplanation(
+            "The hacker and the defender walk the same path, but with different intentions.",
+            "Both attackers and defenders understand systems deeply, but their goals diverge—one seeks to exploit, the other to protect.",
+            "H5C9XE"
+        ),
         KoanWithExplanation(
             "Yesterday's security is today's vulnerability.",
             "Security measures that were once effective may become obsolete as threats evolve. Regular updates and reassessment are essential.",
@@ -1135,37 +1111,20 @@ class KoansRepository {
         )
     )
 
-    /**
-     * Returns a random koan with explanation and unique code
-     * @return A randomly selected cybersecurity zen koan with explanation and code
-     */
     fun getRandomKoanWithExplanation(): KoanWithExplanation {
         // Simply return a random koan with its associated static code
         return koansWithExplanations.random()
     }
 
-    /**
-     * Returns a koan with explanation by its unique code
-     * @param id The unique code of the koan to retrieve
-     * @return The koan with explanation if found, null otherwise
-     */
     fun getKoanById(id: Int): KoanWithExplanation? {
         // Find the koan with the matching unique code
         return koansWithExplanations.find { it.uniqueCode == id.toString() }
     }
 
-    /**
-     * Returns a random koan from the list (legacy method)
-     * @return A randomly selected cybersecurity zen koan text only
-     */
     fun getRandomKoan(): String {
         return getRandomKoanWithExplanation().koanText
     }
 
-    /**
-     * Returns the list of all koan texts
-     * @return List of koan texts without explanations
-     */
     val koans: List<String>
         get() = koansWithExplanations.map { it.koanText }
 }

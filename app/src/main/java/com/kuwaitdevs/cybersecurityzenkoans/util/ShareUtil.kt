@@ -10,18 +10,12 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 
-/**
- * Utility class for sharing functionality
- */
 object ShareUtil {
 
     private const val TAG = "ShareUtil"
     private const val FILE_PROVIDER_AUTHORITY = "com.kuwaitdevs.cybersecurityzenkoans.fileprovider"
     private const val SHARED_IMAGE_NAME = "cybersecurity_zen_koan.jpg"
 
-    /**
-     * Shares the koan as an image using the Android share sheet
-     */
     fun shareKoanCardImage(context: Context, bitmap: Bitmap, koanWithExplanation: KoanWithExplanation?) {
         try {
             // Save bitmap to cache directory

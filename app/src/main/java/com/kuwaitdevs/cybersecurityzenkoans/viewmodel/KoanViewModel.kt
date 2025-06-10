@@ -6,9 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.kuwaitdevs.cybersecurityzenkoans.data.KoanWithExplanation
 import com.kuwaitdevs.cybersecurityzenkoans.data.KoansRepository
 
-/**
- * ViewModel for handling the logic related to displaying and refreshing Koans
- */
 class KoanViewModel : ViewModel() {
     private val koansRepository = KoansRepository()
     

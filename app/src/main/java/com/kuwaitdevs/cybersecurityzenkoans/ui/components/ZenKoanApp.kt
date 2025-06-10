@@ -1,7 +1,6 @@
 package com.kuwaitdevs.cybersecurityzenkoans.ui.components
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.os.Handler
 import android.os.Looper
 import android.view.View
@@ -40,17 +39,14 @@ import android.app.Activity
 import androidx.compose.ui.layout.boundsInRoot
 import androidx.compose.ui.text.style.TextAlign
 import androidx.core.graphics.createBitmap
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.material3.ModalBottomSheet
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import android.content.Intent
-import android.net.Uri
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.TextButton
 import androidx.compose.ui.res.stringResource
 import com.kuwaitdevs.cybersecurityzenkoans.R
+import androidx.core.net.toUri
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -117,7 +113,7 @@ fun ZenKoanApp(
 
                 if (showShakeMessage) {
                     Text(
-                        text = "Shake your device for a new koan",
+                        text = stringResource(R.string.shake_your_device_for_a_new_koan),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.padding(top = 24.dp),
@@ -163,7 +159,7 @@ fun ZenKoanApp(
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Text(
-                                text = "Version: ${1}",
+                                text = "Version: ${2.0}",
                                 style = MaterialTheme.typography.bodyMedium,
                                 textAlign = TextAlign.Center,
                                 modifier = Modifier.padding(top = 8.dp)
@@ -173,16 +169,17 @@ fun ZenKoanApp(
                     confirmButton = {
                         Button(
                             onClick = {
-                                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/kuwaitdevs/cybersecurity_zen_koans_app"))
+                                val intent = Intent(Intent.ACTION_VIEW,
+                                    context.getString(R.string.https_github_com_kuwaitdevs_cybersecurity_zen_koans_app).toUri())
                                 context.startActivity(intent)
                             }
                         ) {
-                            Text("Source Code")
+                            Text(stringResource(R.string.source_code))
                         }
                     },
                     dismissButton = {
                         TextButton(onClick = { showAboutSheet = false }) {
-                            Text("Close")
+                            Text(stringResource(R.string.close))
                         }
                     }
                 )
@@ -193,20 +190,21 @@ fun ZenKoanApp(
 
 // Helper function to capture the currently displayed KoanCard as an image and share it
 fun shareKoanCardAsImage(context: Context, rootView: View, koanCardBounds: ComposeRect?, koanWithExplanation: KoanWithExplanation?) {
-    if (koanCardBounds == null) return
-
-    // Get KoanCard bounds in window (in pixels)
-    val left = koanCardBounds.left.toInt()
-    val top = koanCardBounds.top.toInt()
-    val width = koanCardBounds.width.toInt()
-    val height = koanCardBounds.height.toInt()
-    val rect = Rect(left, top, left + width, top + height)
-
-    // Create a bitmap of the KoanCard area
-    val bitmap = createBitmap(width, height)
-
-    val activity = context as? Activity ?: return
     try {
+        if (koanCardBounds == null) return
+
+        // Get KoanCard bounds in window (in pixels)
+        val left = koanCardBounds.left.toInt()
+        val top = koanCardBounds.top.toInt()
+        val width = koanCardBounds.width.toInt()
+        val height = koanCardBounds.height.toInt()
+        val rect = Rect(left, top, left + width, top + height)
+
+        // Create a bitmap of the KoanCard area
+        val bitmap = createBitmap(width, height)
+
+        val activity = context as? Activity ?: return
+
         PixelCopy.request(
             activity.window,
             rect,
@@ -220,42 +218,10 @@ fun shareKoanCardAsImage(context: Context, rootView: View, koanCardBounds: Compo
         )
     } catch (e: Exception) {
         // fallback: draw cache of the whole rootView and crop
-        rootView.isDrawingCacheEnabled = true
-        val fullBitmap = Bitmap.createBitmap(rootView.drawingCache)
-        rootView.isDrawingCacheEnabled = false
-        val cropped = Bitmap.createBitmap(fullBitmap, left, top, width, height)
-        ShareUtil.shareKoanCardImage(context, cropped, koanWithExplanation)
-    }
-}
-
-@Composable
-fun AboutSheetContent(onSourceClick: () -> Unit) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(28.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = "Cyber Security Koan App",
-            style = MaterialTheme.typography.titleLarge,
-            color = MaterialTheme.colorScheme.primary
-        )
-        Text(
-            text = "Version: ${1}",
-            style = MaterialTheme.typography.bodyMedium,
-            modifier = Modifier.padding(top = 8.dp)
-        )
-        Text(
-            text = "Developed by Kuwait Devs",
-            style = MaterialTheme.typography.bodyMedium,
-            modifier = Modifier.padding(top = 8.dp)
-        )
-        Button(
-            onClick = onSourceClick,
-            modifier = Modifier.padding(top = 20.dp)
-        ) {
-            Text("Source Code")
-        }
+        //rootView.isDrawingCacheEnabled = true
+        //val fullBitmap = Bitmap.createBitmap(rootView.drawingCache)
+        //rootView.isDrawingCacheEnabled = false
+        //val cropped = Bitmap.createBitmap(fullBitmap, left, top, width, height)
+        //ShareUtil.shareKoanCardImage(context, cropped, koanWithExplanation)
     }
 }
